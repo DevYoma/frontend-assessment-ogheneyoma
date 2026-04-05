@@ -27,8 +27,8 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ---
 
 ## Lighthouse Score
-
-![Lighthouse image](assets/lighthouse.png)
+![Light house Home Page Image Result](image-5.png)
+![Light house Detail Page Image Result](image-4.png)
 ---
 
 ## Key Features
