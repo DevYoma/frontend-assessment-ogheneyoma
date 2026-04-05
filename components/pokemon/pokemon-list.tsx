@@ -14,13 +14,6 @@ interface PokemonListProps {
   initialData: PokemonListResponse;
 }
 
-/**
- * PokemonList
- *
- * This component now handles two states:
- * 1.  Search Mode (when `search` exists): Fetches by name/ID and shows a single card.
- * 2.  List Mode (when `search` is empty): Maintains pagination and shows a grid.
- */
 export default function PokemonList({ initialData }: PokemonListProps) {
   const [page, setPage] = useQueryState(
     'page',
@@ -32,13 +25,11 @@ export default function PokemonList({ initialData }: PokemonListProps) {
     parseAsString.withDefault('').withOptions({ shallow: false })
   );
 
-  // Pagination for full list
   const { data: listData, isFetching: isListFetching } = usePokemonList({
     page,
     initialData,
   });
 
-  // Specific search result (only enabled if search has value)
   const { 
     data: searchData, 
     isLoading: isSearchLoading, 
@@ -46,8 +37,6 @@ export default function PokemonList({ initialData }: PokemonListProps) {
   } = usePokemonSearch(search);
 
   const hasNextPage = Boolean(listData?.next);
-
-  // UI rendering decision: Search Mode vs List Mode
   const isSearchActive = !!search;
 
   return (
@@ -66,7 +55,6 @@ export default function PokemonList({ initialData }: PokemonListProps) {
 
       <div className="pokemon-grid p-4">
         {isSearchActive ? (
-          // SEARCH RESULTS
           isSearchLoading ? (
             <div className="col-span-full py-12 text-center animate-pulse text-zinc-400">
               Searching for &quot;{search}&quot;...
@@ -90,7 +78,6 @@ export default function PokemonList({ initialData }: PokemonListProps) {
             />
           ) : null
         ) : (
-          // LIST RESULTS
           listData?.results.map((pokemon, index) => {
             const id = pokemon.url.split('/').filter(Boolean).pop() || '';
             const imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;

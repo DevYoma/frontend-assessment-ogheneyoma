@@ -53,7 +53,6 @@ export default async function PokemonDetailPage({ params }: Props) {
         </div>
 
         <div className="detail-grid">
-          {/* Image — parent MUST be position:relative for next/image fill */}
           <div className="detail-image-wrapper">
             <Image
               src={imageUrl}

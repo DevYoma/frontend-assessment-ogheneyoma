@@ -1,22 +1,17 @@
 export default function PokemonDetailLoading() {
   return (
     <main className="detail-page">
-      {/* Back button skeleton */}
       <div className="skeleton skeleton-back-btn" />
 
       <article>
-        {/* Name & ID skeleton */}
         <div className="detail-header">
           <div className="skeleton skeleton-title" />
           <div className="skeleton skeleton-id" />
         </div>
 
-        {/* Grid skeleton */}
         <div className="detail-grid">
-          {/* Image placeholder */}
           <div className="detail-image-wrapper skeleton" />
 
-          {/* Stats skeleton */}
           <div className="detail-stats">
             <div>
               <div className="skeleton skeleton-section-title" />

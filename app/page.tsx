@@ -2,13 +2,6 @@ import { Suspense } from 'react';
 import { pokemonService } from '@/lib/services/pokemon.service';
 import PokemonList from '@/components/pokemon/pokemon-list';
 
-/**
- * Home (Server Component)
- *
- * SSR fetches page 1 data once at build/request time.
- * The result is passed as `initialData` to seed the React Query cache,
- * so the client renders instantly without a loading spinner on first paint.
- */
 export default async function Home() {
   const initialData = await pokemonService.getPokemonList({ limit: 20, offset: 0 });
 
